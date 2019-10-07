@@ -5,7 +5,7 @@ let k=12;
 function checkLength(elem){
     let result=elem.join("");
     result=result.split(" ");
-    return result.length+elem.length-1;
+    return result.length+elem.length;
 }
 
 function solution(S, K){
@@ -19,17 +19,23 @@ function solution(S, K){
             elements.push(S[i]);
             str=elements.join(" ");
             if(S[i+1]){
-                if(str.length+S[i+1].length>K){
+                if(str.length+S[i+1].length>=K){
                     message.push(str);
                     elements=[];
                 }
             }
             else {
-                message.push(S[i]);
+                message.push(str);
             }
         }
     }
 return message
+}
+
+
+let arr=solution(s, k);
+for(let i=0; i<arr.length;i++){
+    console.log(arr[i].length);
 }
 
 console.log(solution(s, k));
