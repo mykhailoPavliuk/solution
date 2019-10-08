@@ -15,7 +15,10 @@ function solution(S, K){
     let str;
 
     for(let i=0;i<S.length;i++){
-        if (checkLength(elements)+S[i].length<K){
+        if(S[i].length>K){
+            return -1;
+        }
+        else if (checkLength(elements)+S[i].length<K){
             elements.push(S[i]);
             str=elements.join(" ");
             if(S[i+1]){
